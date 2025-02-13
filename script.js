@@ -29,21 +29,36 @@ const switchPlayer = function () {
   player1El.classList.toggle("player--active");
 };
 
+const freshNum = function () {
+  document.getElementById("current--0").textContent = 0;
+  document.getElementById("current--1").textContent = 0;
+  document.querySelector("#score--0").textContent = 0;
+  document.querySelector("#score--1").textContent = 0;
+};
+
 //New Game button
 newGame.addEventListener("click", function () {
+  console.log(activePlayer);
   if (playing) {
     currentScore = 0;
     console.log("new");
-
-    diceEl.classList.remove("hidden");
+    diceEl.classList.add("hidden");
+    freshNum();
+    if ((activePlayer = 1)) {
+      player0El.classList.add("player--active");
+      player1El.classList.remove("player--active");
+      activePlayer = 0;
+    } else {
+    }
+  } else {
+    console.log("new");
+    currentScore = 0;
     document
       .querySelector(`.player--${activePlayer}`)
       .classList.remove("player--winner");
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add("player--active");
-  } else {
-    console.log("new");
+    player0El.classList.add("player--active");
+    player1El.classList.remove("player--active");
+    freshNum();
   }
 });
 
