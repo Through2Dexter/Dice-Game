@@ -16,6 +16,17 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add("hidden");
 
+//Ask for name and place it
+document.addEventListener("DOMContentLoaded", function () {
+  // Ask for player names
+  const player1Name = prompt("Enter Player 1's Name:") || "Player 1";
+  const player2Name = prompt("Enter Player 2's Name:") || "Player 2";
+
+  // Set player names dynamically
+  document.getElementById("name--0").textContent = player1Name;
+  document.getElementById("name--1").textContent = player2Name;
+});
+
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
@@ -107,15 +118,4 @@ btnHold.addEventListener("click", function () {
       switchPlayer();
     }
   }
-});
-
-//Ask for name and place it
-document.addEventListener("DOMContentLoaded", function () {
-  // Ask for player names
-  const player1Name = prompt("Enter Player 1's Name:") || "Player 1";
-  const player2Name = prompt("Enter Player 2's Name:") || "Player 2";
-
-  // Set player names dynamically
-  document.getElementById("name--0").textContent = player1Name;
-  document.getElementById("name--1").textContent = player2Name;
 });
